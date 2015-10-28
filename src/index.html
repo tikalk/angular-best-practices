@@ -30,12 +30,14 @@
 					</span>
 					Ech<i class="fa fa-headphones"></i>es</div>
 
-				<div class="navbar-header">
-					
+				<div class="navbar-header" ng-controller="SearchCtrl as vm">
+									
 					<!-- SEARCH FORM -->
-					<form class="navbar-form form-search navbar-left" id="media-explorer">
+					<form class="navbar-form form-search navbar-left" id="media-explorer" ng-submit="vm.search()">
 						<div class="form-group">
 							<input placeholder="Explore Media" id="media-search" type="search" class="form-control" autocomplete="off"
+								ng-model="vm.params.q"
+								ng-change="vm.resetPageToken()"
 								>
 							<button class="btn btn-transparent btn-submit" type="submit" title="search with echoes">
 								<i class="fa fa-search"></i>
@@ -43,7 +45,7 @@
 						</div>
 					</form>
 					
-				</div>				 
+				</div>			 
 			</div>
 		</nav>
 
