@@ -11,9 +11,7 @@
 		'echoes.resources',
 		'youtube.api',
 		'youtube-videos',
-		'LocalStorageModule',
-		'media.search',
-		'infinite-scroll'
+		'LocalStorageModule'
 	])
 	.config(config);
 

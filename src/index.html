@@ -30,14 +30,12 @@
 					</span>
 					Ech<i class="fa fa-headphones"></i>es</div>
 
-				<div class="navbar-header" ng-controller="SearchCtrl as vm">
-									
+				<div class="navbar-header">
+					
 					<!-- SEARCH FORM -->
-					<form class="navbar-form form-search navbar-left" id="media-explorer" ng-submit="vm.search()">
+					<form class="navbar-form form-search navbar-left" id="media-explorer">
 						<div class="form-group">
 							<input placeholder="Explore Media" id="media-search" type="search" class="form-control" autocomplete="off"
-								ng-model="vm.params.q"
-								ng-change="vm.resetPageToken()"
 								>
 							<button class="btn btn-transparent btn-submit" type="submit" title="search with echoes">
 								<i class="fa fa-search"></i>
@@ -45,7 +43,7 @@
 						</div>
 					</form>
 					
-				</div>			 
+				</div>				 
 			</div>
 		</nav>
 
@@ -115,15 +113,12 @@
 			<div class="row-fluid" >
 				<!-- SEARCH RESULTS AREA -->
 				<div id="search-results" class="ux-maker search-results clearfix main-view"
-					ng-controller="YoutubeVideosCtrl as vm"
-					>					
-					<div infinite-scroll="vm.loadMore()" infinite-scroll-distance="2">
-						<media-list model="vm.videos" 
-							class="clearfix"
-							on-select="vm.playVideo(video)" 
-							on-queue="vm.queueVideo(video)" 
-						></media-list>
-					</div>
+					ng-controller="YoutubeVideosCtrl as vm">					
+					<media-list model="vm.videos" 
+					
+						on-select="vm.playVideo(video)" 
+						on-queue="vm.queueVideo(video)" 
+					></media-list>
 				</div>
 			</div>
 
