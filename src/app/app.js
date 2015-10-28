@@ -7,28 +7,18 @@
 		'htmlTemplates',
 		'youtube.directives',
 		'ui.controls',
-		'ui.bootstrap',
 		'echoes.services',
 		'echoes.resources',
 		'youtube.api',
-		'youtube.playlists',
 		'youtube.player',
 		'youtube-videos',
-		'media.info',
 		'media.search',
-		'drawer',
-		'presets',
 		'ngAnimate',
+		'drawer',
 		'LocalStorageModule',
-		'infinite-scroll',
-		'navigator',
-		'playlist.editor',
-		'playlist.saver',
-		'angular-sortable-view',
-		'720kb.socialshare',
-		'google.api.loader',
-		'google-signin',
-		'user-profile'
+		'infinite-scroll'
+		// 'google.api.loader',
+		// 'google-signin',
 	])
 	.config(config);
 
@@ -46,13 +36,9 @@
 
 		$routeProvider
 			.when('/', {
-				template: '<youtube-videos></youtube-videos>'
-			})
-
-			.when('/video/:id', {
-				templateUrl: 'app/youtube-video/youtube.video.tpl.html',
-				controller: 'YoutubeVideoCtrl',
-				controllerAs: 'vm',
+				templateUrl: 'app/youtube-videos/youtube.videos.tpl.html',
+				controller: 'YoutubeVideosCtrl',
+				controllerAs: 'vm'
 			})
 
 			.otherwise({

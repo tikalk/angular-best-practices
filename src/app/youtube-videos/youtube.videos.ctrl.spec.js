@@ -43,10 +43,4 @@ describe("Youtube Videos", function() {
 		expect(YoutubePlayerSettings.queueVideo).toHaveBeenCalled();
 		expect(YoutubePlayerSettings.playVideoId).toHaveBeenCalled();
 	});
-
-	it("should play a playlist and queue the videos", function() {		
-		scope.vm.playPlaylist(mockPlaylistItem);
-		scope.$digest();
-		expect(YoutubePlayerSettings.playPlaylist.calls.count()).toBe(1);
-	});
 });

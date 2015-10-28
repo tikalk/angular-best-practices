@@ -23,6 +23,8 @@ First, run this **ONCE** to install depenencies:
 Then, to run the project, please use:
 ```npm start```
 
+open <localhost:8080>
+
 ## Tests  
 Tests are invoked via terminal
 

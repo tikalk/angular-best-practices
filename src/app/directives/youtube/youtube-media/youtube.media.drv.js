@@ -3,7 +3,7 @@ angular.module('youtube.directives')
 .directive('youtubeMedia', YoutubeMedia);
 
 /* @ngInject */
-function YoutubeMedia(UserPlaylists, PlaylistEditorSettings) {
+function YoutubeMedia(UserPlaylists) {
 	var directive = {
 		restrict: 'E',
 		templateUrl: 'app/directives/youtube/youtube-media/youtube.media.tpl.html',
@@ -24,7 +24,6 @@ function YoutubeMedia(UserPlaylists, PlaylistEditorSettings) {
 		var vm = this;
 	    vm.playVideo = playVideo;
 		vm.queueVideo = queueVideo;
-		vm.add = add;
 
 	    function playVideo (video){
 	    	$scope.onPlay({
@@ -36,12 +35,6 @@ function YoutubeMedia(UserPlaylists, PlaylistEditorSettings) {
 			$scope.onQueue({
 				video: video
 			});
-		}
-
-		function add () {
-			PlaylistEditorSettings.addMedia($scope.video);
-			PlaylistEditorSettings.show();
-			// UserPlaylists.addToPlaylist('PLaBZBIpdZNOe1w40XjfS9Y1QJbyJMkWnR', $scope.video);
 		}
 	}
 

@@ -5,7 +5,7 @@
         .controller('YoutubePlayerCtrl', YoutubePlayerCtrl);
 
     /* @ngInject */
-    function YoutubePlayerCtrl(YoutubePlayerSettings, PlayerResizer, PlaylistEditorSettings) {
+    function YoutubePlayerCtrl(YoutubePlayerSettings, PlayerResizer) {
         /*jshint validthis: true */
         var vm = this;
         vm.video = YoutubePlayerSettings.nowPlaying;
@@ -37,8 +37,8 @@
 
         function addToPlaylist () {
             if (vm.video.mediaId !== '') {
-                PlaylistEditorSettings.addMedia(vm.video.media);
-                PlaylistEditorSettings.show();
+                // PlaylistEditorSettings.addMedia(vm.video.media);
+                // PlaylistEditorSettings.show();
             }
         }
 
