@@ -5,10 +5,9 @@ describe("Media Search", function() {
 	beforeEach(module("media.search"));
 
 	beforeEach(inject(
-		function($controller, $rootScope, _YoutubeSearch_, _YoutubePlayerSettings_, $httpBackend){
+		function($controller, $rootScope, _YoutubeSearch_, $httpBackend){
 			rootScope = $rootScope;
 			YoutubeSearch = _YoutubeSearch_;
-			YoutubePlayerSettings = _YoutubePlayerSettings_;
 			httpBackend = $httpBackend;
 			// spies
 			spyOn(YoutubeSearch, 'resetPageToken');
@@ -18,9 +17,17 @@ describe("Media Search", function() {
 			  $scope: scope 
 			});
 			scope.$digest();
-			// mockVideoItem = window.mocks['media.info.mock'];
 		}
 	));
+
+	it('should have a params object with q for query', function() {
+		expect(scope.vm.params).toBeDefined();
+		expect(scope.vm.params.q).toBeDefined();
+	});
+
+	it('should have a search function', function() {
+		expect(scope.vm.search).toBeDefined();
+	});
 
 	it("should reset the page token when the query has changed", function() {
 		scope.vm.params.q = 'some random text ' + Date().toString();
@@ -29,5 +36,6 @@ describe("Media Search", function() {
 		expect(YoutubeSearch.resetPageToken).toHaveBeenCalled();
 		expect(YoutubeSearch.resetPageToken.calls.count()).toBe(1);
 	});
+
 
 });
