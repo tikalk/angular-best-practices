@@ -3,7 +3,7 @@ angular.module('youtube.directives')
 .directive('youtubeMedia', YoutubeMedia);
 
 /* @ngInject */
-function YoutubeMedia(UserPlaylists) {
+function YoutubeMedia() {
 	var directive = {
 		restrict: 'E',
 		templateUrl: 'app/directives/youtube/youtube-media/youtube.media.tpl.html',
