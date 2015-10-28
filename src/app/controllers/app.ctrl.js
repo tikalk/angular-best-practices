@@ -4,10 +4,10 @@ angular
     .module('echoes')
     .controller('AppCtrl', AppCtrl);
 
-function AppCtrl($scope, YoutubeSearch, DrawerSettings){
+function AppCtrl($scope, YoutubeSearch){
     var vm = this;
     vm.searching = YoutubeSearch.getIsSearching;
-    vm.drawerIsOpened = DrawerSettings.opened;
+    vm.drawerIsOpened = angular.noop;
 }
 
 })();

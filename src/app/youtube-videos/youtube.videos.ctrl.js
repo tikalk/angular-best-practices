@@ -4,11 +4,10 @@
 		.module('youtube-videos')
 		.controller('YoutubeVideosCtrl', YoutubeVideosCtrl);
 
-	function YoutubeVideosCtrl(YoutubePlayerSettings, YoutubeSearch, YoutubeVideoInfo){
+	function YoutubeVideosCtrl(YoutubeSearch, YoutubeVideoInfo){
 		var vm = this;
 
 		vm.playVideo = playVideo;
-		vm.queueVideo = YoutubePlayerSettings.queueVideo;
 		vm.feedType = YoutubeSearch.getFeedType;
 		vm.videos = YoutubeSearch.items;
 		vm.loadMore = YoutubeSearch.searchMore;
@@ -20,8 +19,6 @@
 		}
 
 		function playVideo (video) {
-			YoutubePlayerSettings.queueVideo(video);
-			YoutubePlayerSettings.playVideoId(video);
 		}
 	}
 

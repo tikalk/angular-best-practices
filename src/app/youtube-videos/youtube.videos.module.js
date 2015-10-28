@@ -3,8 +3,6 @@
 
     angular
         .module('youtube-videos', [
-            'echoes.services',
-            'youtube.player',
-            'infinite-scroll'
+            'echoes.services'
         ]);
 })();
