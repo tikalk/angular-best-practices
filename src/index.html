@@ -111,30 +111,35 @@
 			ng-controller="AppCtrl as vm">
 			
 			<div class="row-fluid" >
+				
 				<!-- SEARCH RESULTS AREA -->
 				<div id="search-results" class="ux-maker search-results clearfix main-view"
-					ng-controller="YoutubeVideosCtrl as vm">
+					
+					>
+					<!-- DEFINE CONTROLLER JUST ABOVE -->
 					<ul>
+						<!-- USE ng-repeat, ng-class, ng-click
+							and data binding {{youtube.videos.mock.json}} -->
 						<li class="youtube-item card ux-maker col-sm-3 col-xs-12"
-							ng-repeat="video in vm.videos track by $index"
-							ng-class="{ 'show-description': showDesc}">
+							
+							>
 							<section class="media-title">
 								
 								<div class="front face">
 									<div class="indicators clearfix">
 										
-										<span class="pull-left item-is-playing playing-{{ isPlaying }}">
+										<span class="pull-left item-is-playing playing-">
 											<i class="fa fa-play"></i>Now Playing
 										</span>
 										
 									</div>
 									
 									<div rel="tooltip" class="media-thumb"
-										uib-tooltip="{{ video.snippet.title }}" tooltip-placement="bottom"
-										ng-click="vm.playVideo(video)">
+										title="{{ }}"
+										ng-click="">
 										
 										<div class="thumbnail">
-											<img ng-src="{{ video.snippet.thumbnails.high.url}}">
+											<img ng-src="">
 										</div>
 										
 										<button class="btn btn-default btn-lg ux-maker play-media">
@@ -145,19 +150,19 @@
 									<section class="item-actions main-actions">
 										
 										<h4 class="title span11">
-											<a href='#/video/{{ video.id}}' rel="tooltip" class="media-thumb ellipsis"
-												tooltip="{{ video.snippet.title}}" tooltip-placement="bottom">
-												{{ video.snippet.title}}
+											<a href='#/video/{{ }}' rel="tooltip" class="media-thumb ellipsis"
+												title="{{ }}">
+												{{ }}
 											</a>
 										</h4>
 
 										<section class="media-actions clearfix">
 											<button class="btn btn-link btn-xs add-to-playlist" title="Queue this video to now playlist"
-												ng-click="vm.queueVideo(video)">
+												ng-click="">
 												<i class="fa fa-share"></i> Queue
 											</button>
 											<button class="btn btn-link btn-xs add-to-playlist" title="Add this video to a playlist"
-												ng-click="vm.add()">
+												ng-click="">
 												<i class="fa fa-plus"></i> Add
 											</button>
 										</section>
@@ -168,27 +173,27 @@
 											<i class="fa fa-info-circle"></i>
 										</span>
 
-										<span class="item-action"><i class="fa fa-clock-o"></i>{{ video.time}}</span>
+										<span class="item-action"><i class="fa fa-clock-o"></i>{{ }}</span>
 
 										<span class="item-likes item-action" rel="tooltip" title="Number of Likes">
-											<i class="fa fa-thumbs-up"></i> {{ video.statistics.likeCount | number}}
+											<i class="fa fa-thumbs-up"></i> {{ }}
 										</span>
 
 										<span class="item-views item-action" rel="tooltip" title="Number of Views">
-											<i class="fa fa-eye"></i> {{ video.statistics.viewCount | number}}
+											<i class="fa fa-eye"></i> {{ }}
 										</span>
 
 									</section>
 								</div>
 
 								<div class="description back face">
-									<h4><a href='#/video/{{ video.id}}' rel="tooltip" title="{{ video.snippet.title}}" class="media-thumb">{{ video.snippet.title}}</a></h4>
-									<div ng-bind-html="video.snippet.description | linky"></div>
+									<h4><a href='#/video/{{ }}' rel="tooltip" title="{{ }}" class="media-thumb">{{ }}</a></h4>
+									<div ng-bind-html=""></div>
 								</div>
 
-								<section class="item-actions close-desc" ng-hide="!showDesc">
+								<section class="item-actions close-desc" ng-hide="">
 									<span
-										ng-click="showDesc = !showDesc"
+										ng-click=""
 										class="btn btn-default btn-xs media-desc " title="flip back...">
 											<i class="fa fa-times-circle"></i>
 										</span>

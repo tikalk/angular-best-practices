@@ -10,7 +10,6 @@
 		'echoes.services',
 		'echoes.resources',
 		'youtube.api',
-		'youtube-videos',
 		'LocalStorageModule',
 		// 'ngAnimate',
 		// 'infinite-scroll'
