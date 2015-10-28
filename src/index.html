@@ -115,12 +115,15 @@
 			<div class="row-fluid" >
 				<!-- SEARCH RESULTS AREA -->
 				<div id="search-results" class="ux-maker search-results clearfix main-view"
-					ng-controller="YoutubeVideosCtrl as vm">					
-					<media-list model="vm.videos" 
-						class="clearfix"
-						on-select="vm.playVideo(video)" 
-						on-queue="vm.queueVideo(video)" 
-					></media-list>
+					ng-controller="YoutubeVideosCtrl as vm"
+					>					
+					<div infinite-scroll="vm.loadMore()" infinite-scroll-distance="2">
+						<media-list model="vm.videos" 
+							class="clearfix"
+							on-select="vm.playVideo(video)" 
+							on-queue="vm.queueVideo(video)" 
+						></media-list>
+					</div>
 				</div>
 			</div>
 

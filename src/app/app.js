@@ -12,7 +12,8 @@
 		'youtube.api',
 		'youtube-videos',
 		'LocalStorageModule',
-		'media.search'
+		'media.search',
+		'infinite-scroll'
 	])
 	.config(config);
 
