@@ -5,7 +5,7 @@
 	.module('echoes.services')
 	.factory('YoutubeVideoInfo', YoutubeVideoInfo);
 
-	function YoutubeVideoInfo ($q, $http, YOUTUBE_API_KEY, UserPlaylists){
+	function YoutubeVideoInfo ($q, $http, YOUTUBE_API_KEY){
 		var url = 'https://www.googleapis.com/youtube/v3/videos';
 		var config = {
 			params: {
@@ -62,21 +62,7 @@
 		}
 
 		function getPlaylist (playlistId) {
-			var defer = $q.defer();
-			UserPlaylists
-			.getPlaylist(playlistId)
-			.then(function (res) {
-				return enrichItemsInBulk(res.items).then(function (res) {
-					var videos = [];
-					res[0].forEach(function (items) {
-						videos = videos.concat(items);
-					});
-					defer.resolve(videos);
-				});
-            });
-            return defer.promise;
-			// .then(fetchContentDetails)
-			// .then(addDuration);
+			
 		}
 		
 		function enrichItemsInBulk (items) {

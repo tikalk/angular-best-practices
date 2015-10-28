@@ -10,13 +10,10 @@
 		'echoes.services',
 		'echoes.resources',
 		'youtube.api',
-		'youtube.player',
 		'youtube-videos',
-		'media.search',
-		'ngAnimate',
-		'drawer',
 		'LocalStorageModule',
-		'infinite-scroll'
+		// 'ngAnimate',
+		// 'infinite-scroll'
 		// 'google.api.loader',
 		// 'google-signin',
 	])
@@ -33,17 +30,6 @@
 		});
 
 		localStorageServiceProvider.setPrefix('EchoesPlayer');
-
-		$routeProvider
-			.when('/', {
-				templateUrl: 'app/youtube-videos/youtube.videos.tpl.html',
-				controller: 'YoutubeVideosCtrl',
-				controllerAs: 'vm'
-			})
-
-			.otherwise({
-				redirectTo: '/'
-			});
 	}
 
 })();

@@ -30,14 +30,12 @@
 					</span>
 					Ech<i class="fa fa-headphones"></i>es</div>
 
-				<div class="navbar-header" ng-controller="SearchCtrl as vm">
+				<div class="navbar-header">
 					
 					<!-- SEARCH FORM -->
-					<form class="navbar-form form-search navbar-left" id="media-explorer" ng-submit="vm.search()">
+					<form class="navbar-form form-search navbar-left" id="media-explorer">
 						<div class="form-group">
 							<input placeholder="Explore Media" id="media-search" type="search" class="form-control" autocomplete="off"
-								ng-model="vm.params.q"
-								ng-change="vm.resetPageToken()"
 								>
 							<button class="btn btn-transparent btn-submit" type="submit" title="search with echoes">
 								<i class="fa fa-search"></i>
@@ -50,63 +48,7 @@
 		</nav>
 
 		<!-- YOUTUBE PLAYER -->
-		<div id="youtube-player-container" class="navbar navbar-default navbar-fixed-bottom youtube-player"
-			ng-controller="YoutubePlayerCtrl as vm"
-			ng-class="{ 
-				'show-youtube-player': vm.showPlayer,
-				'fullscreen': vm.isFullScreen
-					}">
-			<div class="yt-player ux-maker">
-				<div id="player" class="ux-maker"
-					youtube-player
-					video-id="vm.video.mediaId"
-					index="vm.video.index"
-					height="vm.size.height"
-					width="vm.size.width",
-					auto-next
-					on-video-start="vm.togglePlayer(true, id)"
-				></div>
-			</div>
-			
-			<div class="container-fluid">
-				
-				<ul class="navbar-nav nav youtube-toolbar nicer-ux clearfix">
-					
-					<li class="player-controls pull-left" 
-						ng-class="{'yt-playing': vm.isPlaying() }"
-						>
-						
-						<div class="btn-group">
-							<button 
-								ng-click="vm.togglePlayer(!vm.showPlayer)" 
-								class="btn btn-default btn-lg navbar-btn show-player"><i class="fa fa-chevron-up"></i></button>
-									
-							<button class="btn btn-default btn-lg navbar-btn fullscreen"
-								ng-click="vm.toggleFullScreen()"
-								><i class="fa fa-arrows-alt"></i></button>
-							
-									
-							<button class="btn btn-default btn-lg navbar-btn previous"
-								ng-click="vm.playPreviousTrack()"
-								ng-disabled="!vm.playlistHasTracks()">
-								<i class="fa fa-step-backward"></i></button>
-								
-							<button class="btn btn-default btn-lg navbar-btn pause"
-								ng-click="vm.pause()">
-								<i class="fa fa-pause"></i></button>
-								
-							<button class="btn btn-default btn-lg navbar-btn play"
-								ng-click="vm.play()">
-								<i class="fa fa-play"></i></button>
-								
-							<button class="btn btn-default btn-lg navbar-btn next" 
-								ng-click="vm.playNextTrack()"
-								ng-disabled="vm.playlistIsEmpty() || vm.playlistHasOneTrack()"
-								><i class="fa fa-step-forward"></i></button>
-						</div>
-					</li>
-				</ul>
-			</div>
+		<div id="youtube-player-container" class="navbar navbar-default navbar-fixed-bottom youtube-player">
 		</div>
 		
 		<!-- SIDEBAR -->
@@ -120,45 +62,35 @@
 				<li><a href="#myPlaylists"><i class="fa fa-heart"></i>My Playlists</a></li>
 			</ul>
 			
-			<div class="sidebar-pane" ng-controller="UserPlaylistsCtrl as vm">
+			<div class="sidebar-pane">
 				<h3 class="nav-header nav-header-fluid user-playlists-filter">
 					Now Playing 
 					<button class="btn btn-link btn-xs btn-clear" title="Clear All Tracks In Now Playlist"
-						ng-disabled="!vm.playlists.length"
-						ng-click="vm.clearPlaylist()">
+						>
 						<span class="fa fa-trash-o"></span>
 					</button>
 					<button class="btn btn-link btn-xs btn-save" title="Save All These Tracks To A New Playlist"
-						ng-disabled="!vm.playlists.length"
-						ng-click="vm.togglePlaylistSaver()">
+						>
 						<span class="fa fa-cloud-upload"></span>
 					</button>
 					<div class="playlist-filter pull-right">
-						<i class="fa fa-search" ng-show="vm.playlistSearch.length === 0"></i>
-						<i class="fa fa-remove text-danger" ng-show="vm.playlistSearch.length" ng-click="vm.playlistSearch = ''"></i>
-						<input type="search" ng-model="vm.playlistSearch">
+						<i class="fa fa-search" ></i>
+						<i class="fa fa-remove text-danger" ></i>
+						<input type="search" >
 					</div>
 				</h3>
 				<ul id="user-playlists" class="nav nav-list xux-maker xnicer-ux user-playlists"
-					ng-class="{ 
-						'transition-in': vm.playlists.length,
-						'slide-down': vm.showPlaylistSaver 
-					}"
-					sv-root sv-part="vm.playlists"
-					sv-on-sort="vm.updateIndex($item, $indexTo)"
 					>
 					<li class="user-playlist"
-						ng-class="{ 'active': vm.nowPlaying.index === $index}"
-						ng-repeat="video in vm.playlists | filter:vm.playlistSearch"
-						sv-element>
-						<a class="" title="{{:: video.snippet.title }}"
-							ng-click="vm.playVideo(video, $index)">
-							{{ $index + 1 }})
-							<img class="video-thumb" draggable="false" ng-src="{{:: video.snippet.thumbnails.default.url }}" sv-handle title="Drag to sort">
-							<span class="video-title">{{:: video.snippet.title }}</span>
-							<span class="badge badge-info">{{:: video.time }}</span>
+						>
+						<a class="" title=""
+							>
+							
+							<img class="video-thumb">
+							<span class="video-title"></span>
+							<span class="badge badge-info"></span>
 							<span class="label label-danger ux-maker" title="Remove From Playlist"
-								ng-click="vm.remove($event, video, $index)"><i class="fa fa-remove"></i></span>
+								><i class="fa fa-remove"></i></span>
 						</a>
 					</li>
 				</ul>
@@ -180,9 +112,93 @@
 			
 			<div class="row-fluid" >
 				<!-- SEARCH RESULTS AREA -->
-				<div id="search-results" class="ux-maker search-results clearfix main-view" 
-					ng-view
-					></div>
+				<div id="search-results" class="ux-maker search-results clearfix main-view"
+					ng-controller="YoutubeVideosCtrl as vm">
+					<ul>
+						<li class="youtube-item card ux-maker col-sm-3 col-xs-12"
+							ng-repeat="video in vm.videos track by $index"
+							ng-class="{ 'show-description': showDesc}">
+							<section class="media-title">
+								
+								<div class="front face">
+									<div class="indicators clearfix">
+										
+										<span class="pull-left item-is-playing playing-{{ isPlaying }}">
+											<i class="fa fa-play"></i>Now Playing
+										</span>
+										
+									</div>
+									
+									<div rel="tooltip" class="media-thumb"
+										uib-tooltip="{{ video.snippet.title }}" tooltip-placement="bottom"
+										ng-click="vm.playVideo(video)">
+										
+										<div class="thumbnail">
+											<img ng-src="{{ video.snippet.thumbnails.high.url}}">
+										</div>
+										
+										<button class="btn btn-default btn-lg ux-maker play-media">
+											<i class="fa fa-play"></i>
+										</button>
+									</div>
+
+									<section class="item-actions main-actions">
+										
+										<h4 class="title span11">
+											<a href='#/video/{{ video.id}}' rel="tooltip" class="media-thumb ellipsis"
+												tooltip="{{ video.snippet.title}}" tooltip-placement="bottom">
+												{{ video.snippet.title}}
+											</a>
+										</h4>
+
+										<section class="media-actions clearfix">
+											<button class="btn btn-link btn-xs add-to-playlist" title="Queue this video to now playlist"
+												ng-click="vm.queueVideo(video)">
+												<i class="fa fa-share"></i> Queue
+											</button>
+											<button class="btn btn-link btn-xs add-to-playlist" title="Add this video to a playlist"
+												ng-click="vm.add()">
+												<i class="fa fa-plus"></i> Add
+											</button>
+										</section>
+
+										<span
+											ng-click="showDesc = !showDesc"
+											class="btn btn-default btn-xs media-desc " title="more info about this video">
+											<i class="fa fa-info-circle"></i>
+										</span>
+
+										<span class="item-action"><i class="fa fa-clock-o"></i>{{ video.time}}</span>
+
+										<span class="item-likes item-action" rel="tooltip" title="Number of Likes">
+											<i class="fa fa-thumbs-up"></i> {{ video.statistics.likeCount | number}}
+										</span>
+
+										<span class="item-views item-action" rel="tooltip" title="Number of Views">
+											<i class="fa fa-eye"></i> {{ video.statistics.viewCount | number}}
+										</span>
+
+									</section>
+								</div>
+
+								<div class="description back face">
+									<h4><a href='#/video/{{ video.id}}' rel="tooltip" title="{{ video.snippet.title}}" class="media-thumb">{{ video.snippet.title}}</a></h4>
+									<div ng-bind-html="video.snippet.description | linky"></div>
+								</div>
+
+								<section class="item-actions close-desc" ng-hide="!showDesc">
+									<span
+										ng-click="showDesc = !showDesc"
+										class="btn btn-default btn-xs media-desc " title="flip back...">
+											<i class="fa fa-times-circle"></i>
+										</span>
+								</section>
+
+							</section>
+
+						</li>
+					</ul>
+				</div>
 			</div>
 
 			<!-- <footer class="navbar-inverse">
