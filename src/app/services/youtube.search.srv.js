@@ -15,7 +15,7 @@
 			params: {
 				part: 'snippet,id',
 				key: YOUTUBE_API_KEY,
-				q: localStorageService.get(Storage.QUERY),
+				q: '',
 				maxResults: 50,
 				type: 'video'
 			}
@@ -49,8 +49,9 @@
 			}
 			// remove properties not relevant to playlist search
 			config.params.q = query || config.params.q;
-			localStorageService.set(Storage.QUERY, config.params.q);
-			return $http.get(url, config)
+			// save query to storage
+			
+			return $http.get()
 				.then(fetchContentDetails)
 				.then(addDuration)
 				.then(finalize);
@@ -88,7 +89,7 @@
 		}
 
 		function resetPageToken () {
-			config.params.pageToken = '';
+			
 		}
 
 		function setDuration (duration) {

@@ -32,10 +32,10 @@
 		function list(id) {
 			setId(id);
 			var _config = {
-				params: angular.extend({}, config.params)
+				params: // extend config.params and return a copy of it as a literal object
 			};
-			return $http.get(url, _config).then(function(res){
-				return res.data.items;
+			return $http.get().then(function(res){
+				// should return the items array from teh response
 			});
 		}
 
