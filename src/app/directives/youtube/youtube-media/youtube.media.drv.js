@@ -1,17 +1,18 @@
 (function() {
-angular.module('youtube.directives')
-.directive('youtubeMedia', YoutubeMedia);
+angular
+	.module('youtube.directives')
+	.directive('youtubeMedia', YoutubeMedia);
 
 /* @ngInject */
 function YoutubeMedia() {
 	var directive = {
-		restrict: 'E',
-		templateUrl: 'app/directives/youtube/youtube-media/youtube.media.tpl.html',
+		restrict: '',
+		templateUrl: '',
 		replace: true,
 		scope: {
-			onPlay: '&',
-			onQueue: '&',
-			video: '='
+			onPlay: '',
+			onQueue: '',
+			video: ''
 		},
 		controller: controller,
 		controllerAs: 'vm'
@@ -21,20 +22,14 @@ function YoutubeMedia() {
 
 	/* @ngInject */
 	function controller ($scope) {
-		var vm = this;
-	    vm.playVideo = playVideo;
-		vm.queueVideo = queueVideo;
+		
 
 	    function playVideo (video){
-	    	$scope.onPlay({
-	    		video: video
-	    	});
+	    	
 		}
 
 		function queueVideo(video) {
-			$scope.onQueue({
-				video: video
-			});
+			
 		}
 	}
 

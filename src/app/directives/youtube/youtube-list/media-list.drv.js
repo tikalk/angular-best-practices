@@ -8,17 +8,22 @@
 		/* @ngInject */
 		function mediaList() {
 			// Usage:
-	        //
+	        //	<media-list 
+	        // 		model="vm.videos"
+	        //   	on-select="play(video)" 
+	        //    	on-queue="queue(video)">
+	        //  </media-list>
+	        //  
 	        // Creates:
 	        //
 			var directive = {
-				restrict: 'E',
+				restrict: '',
 				replace: true,
-				templateUrl: 'app/directives/youtube/youtube-list/media-list.tpl.html',
+				templateUrl: '',
 				scope: {
-					videos: '=model',
-					onSelect: '&',
-					onQueue: '&'
+					videos: '',
+					onSelect: '',
+					onQueue: ''
 				},
 				link: link
 			};
@@ -26,17 +31,7 @@
 			return directive;
 
 			function link (scope, element, attrs){
-				scope.playSelectedVideo = function(video){
-					scope.onSelect({
-						video: video
-					});
-				};
-
-				scope.queueSelectedVideo = function (video) {
-					scope.onQueue({
-						video: video
-					});
-				};
+				
 			}
 		}
 
