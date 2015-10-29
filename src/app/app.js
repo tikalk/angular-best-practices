@@ -13,7 +13,8 @@
 		'youtube-videos',
 		'LocalStorageModule',
 		'media.search',
-		'infinite-scroll'
+		'infinite-scroll',
+		'drawer'
 	])
 	.config(config);
 
@@ -28,6 +29,17 @@
 		});
 
 		localStorageServiceProvider.setPrefix('EchoesPlayer');
+
+		$routeProvider
+			.when('/', {
+				templateUrl: 'app/youtube-videos/youtube.videos.tpl.html',
+				controller: 'YoutubeVideosCtrl',
+				controllerAs: 'vm'
+			})
+
+			.otherwise({
+				redirectTo: '/'
+			});
 	}
 
 })();
