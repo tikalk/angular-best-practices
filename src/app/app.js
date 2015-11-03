@@ -16,13 +16,14 @@
 		'ngAnimate',
 		'drawer',
 		'LocalStorageModule',
-		'infinite-scroll'
-		// 'google.api.loader',
-		// 'google-signin',
+		'infinite-scroll',
+		'drawer',
+		'ui.router',
+		'youtube.video'
 	])
 	.config(config);
 
-	function config ($routeProvider, $locationProvider, localStorageServiceProvider, GapiApiSetterProvider) {
+	function config ($stateProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider, GapiApiSetterProvider) {
 		GapiApiSetterProvider.config({
 			scope: 'youtube',
 			api: { 
@@ -34,16 +35,17 @@
 
 		localStorageServiceProvider.setPrefix('EchoesPlayer');
 
-		$routeProvider
-			.when('/', {
+		$stateProvider
+			.state('search', {
+				url: '/',
 				templateUrl: 'app/youtube-videos/youtube.videos.tpl.html',
 				controller: 'YoutubeVideosCtrl',
 				controllerAs: 'vm'
 			})
 
-			.otherwise({
-				redirectTo: '/'
-			});
+			
+
+		$urlRouterProvider.otherwise('/');
 	}
 
 })();
