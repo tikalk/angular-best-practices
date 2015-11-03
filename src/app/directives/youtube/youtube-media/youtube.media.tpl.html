@@ -5,7 +5,7 @@ ng-class="{ 'show-description': showDesc}">
 		<div class="front face">
 			<div class="indicators clearfix">
 				
-				<span class="pull-left item-is-playing playing-{{ isPlaying }}">
+				<span class="pull-left item-is-playing playing-">
 					<i class="fa fa-play"></i>Now Playing
 				</span>
 				
@@ -27,7 +27,7 @@ ng-class="{ 'show-description': showDesc}">
 			<section class="item-actions main-actions">
 				
 				<h4 class="title span11">
-					<a href='#/video/{{:: video.id}}' rel="tooltip" class="media-thumb ellipsis"
+					<a ui-sref='video({ id: video.id })' rel="tooltip" class="media-thumb ellipsis"
 						tooltip="{{:: video.snippet.title}}" tooltip-placement="bottom">
 						{{:: video.snippet.title}}
 					</a>
@@ -64,7 +64,7 @@ ng-class="{ 'show-description': showDesc}">
 		</div>
 
 		<div class="description back face">
-			<h4><a href='#/video/{{:: video.id}}' rel="tooltip" title="{{:: video.snippet.title}}" class="media-thumb">{{:: video.snippet.title}}</a></h4>
+			<h4><a ui-sref='video({ id: video.id })' rel="tooltip" title="{{:: video.snippet.title}}" class="media-thumb">{{:: video.snippet.title}}</a></h4>
 			<div ng-bind-html="video.snippet.description | linky"></div>
 		</div>
 
