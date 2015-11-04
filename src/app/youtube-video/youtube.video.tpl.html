@@ -6,23 +6,23 @@
 				<h4>
 					<button class="btn btn-default"
 							ng-click="vm.goBack()"><i class="fa fa-chevron-left"></i> Back</button>
-					{{:: vm.video.snippet.title}}
+					BIND TITLE HERE
 				</h4>
 			</div>
 
 			<div class="panel-body">
 				<div class="thumbnail" title="Play this video now"
 					ng-click="vm.playVideo()">
-					<img ng-src="{{:: vm.video.snippet.thumbnails.high.url }}" alt="{{:: vm.video.snippet.title }}">
+					<img ng-src="BIND THUMBNAIL URL HERE" alt="BIND TITLE HERE">
 
 					<button class="btn btn-default btn-lg ux-maker play-media">
 						<i class="fa fa-play"></i>
 					</button>
 				</div>
 				<div class="caption pull">
-					<span>{{:: vm.video.snippet.publishedAt | date }}</span>
-					<span class="label label-info">{{:: vm.time }}</span>
-					<div ng-bind-html="::vm.video.snippet.description"></div>
+					<span>BIND PUBLISHED-AT HERE (USE DATE FILTER AS WELL)</span>
+					<span class="label label-info">BIND TIME HERE</span>
+					<div ng-bind-html="BIND DESCRIPTION HERE"></div>
 				</div>
 			</div>
 		</div>

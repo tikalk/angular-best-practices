@@ -27,8 +27,6 @@
     "angular-resource": "~1.4.7",
     "angular-bootstrap": "~0.14.3",
     "font-awesome": "~4.4.0",
-    "bootstrap": "~3.2.0",
-    "angular-socialshare": "angularjs-socialshare#~0.1.14",
-    "angular-ui-router": "~0.2.15"
+    "bootstrap": "~3.2.0"
   }
 }

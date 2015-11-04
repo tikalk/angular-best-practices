@@ -38,7 +38,6 @@ describe("Echoes Services: Youtube Search Service", function() {
 		YoutubeSearch.params.q = 'pink floyd live';
 		YoutubeSearch.search('pink floyd albums');
 		httpBackend.flush();
-		console.log('items', YoutubeSearch.items.length);
 		spyOn(YoutubeSearch, 'search').and.callThrough();
 		YoutubeSearch.searchMore();
 		httpBackend.flush();
