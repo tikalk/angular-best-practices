@@ -29,7 +29,7 @@
         function playVideo (video, index) {
         	// YoutubePlayerSettings.playPlaylistId(playlist.id, 0);
             vm.nowPlaying.index = index;
-            YoutubePlayerSettings.playVideoId(video);
+            YoutubePlayerSettings.playVideo(video);
         }
 
         function remove ($event, video, index) {

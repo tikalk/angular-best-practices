@@ -50,63 +50,10 @@
 		</nav>
 
 		<!-- YOUTUBE PLAYER -->
-		<div id="youtube-player-container" class="navbar navbar-default navbar-fixed-bottom youtube-player"
-			ng-controller="YoutubePlayerCtrl as vm"
-			ng-class="{ 
-				'show-youtube-player': vm.showPlayer,
-				'fullscreen': vm.isFullScreen
-					}">
-			<div class="yt-player ux-maker">
-				<div id="player" class="ux-maker"
-					youtube-player
-					video-id="vm.video.mediaId"
-					index="vm.video.index"
-					height="vm.size.height"
-					width="vm.size.width",
-					auto-next
-					on-video-start="vm.togglePlayer(true, id)"
-				></div>
-			</div>
-			
-			<div class="container-fluid">
-				
-				<ul class="navbar-nav nav youtube-toolbar nicer-ux clearfix">
-					
-					<li class="player-controls pull-left" 
-						ng-class="{'yt-playing': vm.isPlaying() }"
-						>
-						
-						<div class="btn-group">
-							<button 
-								ng-click="vm.togglePlayer(!vm.showPlayer)" 
-								class="btn btn-default btn-lg navbar-btn show-player"><i class="fa fa-chevron-up"></i></button>
-									
-							<button class="btn btn-default btn-lg navbar-btn fullscreen"
-								ng-click="vm.toggleFullScreen()"
-								><i class="fa fa-arrows-alt"></i></button>
-							
-									
-							<button class="btn btn-default btn-lg navbar-btn previous"
-								ng-click="vm.playPreviousTrack()"
-								ng-disabled="!vm.playlistHasTracks()">
-								<i class="fa fa-step-backward"></i></button>
-								
-							<button class="btn btn-default btn-lg navbar-btn pause"
-								ng-click="vm.pause()">
-								<i class="fa fa-pause"></i></button>
-								
-							<button class="btn btn-default btn-lg navbar-btn play"
-								ng-click="vm.play()">
-								<i class="fa fa-play"></i></button>
-								
-							<button class="btn btn-default btn-lg navbar-btn next" 
-								ng-click="vm.playNextTrack()"
-								ng-disabled="vm.playlistIsEmpty() || vm.playlistHasOneTrack()"
-								><i class="fa fa-step-forward"></i></button>
-						</div>
-					</li>
-				</ul>
-			</div>
+		<div id="youtube-player-container" class="navbar navbar-default navbar-fixed-bottom"
+			youtube-player 
+			player-id="player" 
+			auto-next>
 		</div>
 		
 		<!-- SIDEBAR -->

@@ -19,7 +19,8 @@
 		'infinite-scroll',
 		'drawer',
 		'ui.router',
-		'youtube.video'
+		'youtube.video',
+		'youtube.player'
 	])
 	.config(config);
 
