@@ -1,5 +1,5 @@
 describe('Youtube Player Module', function() {
-	var YoutubePlayerSettings, YoutubeSearch, YoutubePlayerCreator;
+	var YoutubePlayerSettings, YoutubeSearch, YoutubePlayerCreator, YoutubePlayerCreator;
 	var videosResponseMock = {};
 
 	beforeEach(function(){
@@ -7,10 +7,10 @@ describe('Youtube Player Module', function() {
 		inject(function (localStorageService) {
 			spyOn(localStorageService, 'get').and.returnValue([]);
 		});
-		inject(function($controller, _YoutubePlayerSettings_, _YoutubePlayerCreator_){
+		inject(function($controller, $injector){
 			var ytPlayerSpy = jasmine.createSpyObj('ytPlayerSpy', ['loadVideoById', 'playVideo', 'pauseVideo']);
-			YoutubePlayerSettings = _YoutubePlayerSettings_;
-			YoutubePlayerCreator = _YoutubePlayerCreator_;
+			YoutubePlayerSettings = $injector.get('YoutubePlayerSettings');
+			YoutubePlayerCreator = $injector.get('YoutubePlayerCreator');
 
 			spyOn(YoutubePlayerCreator, 'createPlayer').and.returnValue(ytPlayerSpy);
 			videosResponseMock = window.mocks['youtube.videos.mock'];
