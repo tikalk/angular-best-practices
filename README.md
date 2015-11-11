@@ -1,3 +1,18 @@
+# Challenge  
+* use ng-model in the search area  
+* use ng-change to resetToken  
+* create media.search.module in (app/media-search/media-search.ctrl) 
+* should define ctrl in index.html  
+* use infinite-scroll 3rd party directive in wrapper div of media-list in index.html (infinite-scroll="vm.loadMore()", infinite-scroll-distance="2")   
+
+
+youtube media drv should have these funcs:  
+* search  
+* resetPageToken  
+* updateSearch  
+* params (json object)  
+* complete (?)  
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.
