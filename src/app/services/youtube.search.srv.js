@@ -6,7 +6,7 @@
 		.factory('YoutubeSearch', YoutubeSearch);
 
 	/* @ngInject */
-	function YoutubeSearch ($http, YOUTUBE_API_KEY, YoutubeVideoInfo, localStorageService){
+	function YoutubeSearch ($http, YOUTUBE_API_KEY, YoutubeVideoInfo){
 		var url = 'https://www.googleapis.com/youtube/v3/search';
 		var Storage = {
 			QUERY: 'query'
@@ -16,7 +16,7 @@
 				part: 'snippet,id',
 				key: YOUTUBE_API_KEY,
 				q: '',
-				maxResults: 10,
+				maxResults: 50,
 				type: 'video'
 			}
 		};
@@ -54,7 +54,9 @@
 			// after response, it should 
 			// fetch content details, add duration and mark the isSearching to be false
 			return $http.get()
-				// complete the code HERE - you can use ".then" function
+				.then(fetchContentDetails)
+				.then(addDuration)
+				.then(finalize);
 
 			function fetchContentDetails(response){
 				nextPageToken = response.data.nextPageToken;
