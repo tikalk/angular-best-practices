@@ -1,15 +1,14 @@
 describe("Youtube Videos", function() {
-	var scope, ctrl, url, mockData, rootScope, YoutubeSearch, $q;
+	var scope, ctrl, url, mockData, rootScope, YoutubeSearch;
 	var mockVideoItem = {};
 	var mockPlaylistItem = {};
 
 	beforeEach(module("youtube-videos"));
 
 	beforeEach(inject(
-		function($controller, $rootScope, _$q_, _YoutubeSearch_){
+		function($controller, $rootScope, $injector){
 			rootScope = $rootScope;
-			$q = _$q_;
-			YoutubeSearch = _YoutubeSearch_;
+			YoutubeSearch = $injector.get('YoutubeSearch');
 			// spies
 			spyOn(YoutubeSearch, 'search');
 			scope = $rootScope.$new();
@@ -21,6 +20,17 @@ describe("Youtube Videos", function() {
 			mockPlaylistItem = window.mocks['youtube.videos.mock'];
 		}
 	));
+	it('should expose items props', function() {
+		expect(scope.vm.videos).toBe(YoutubeSearch.items);
+	});
+
+	it('should define set a feedType prop', function() {
+		expect(scope.vm.feedType).toBe(YoutubeSearch.getFeedType);
+	});
+
+	it('should have a loadMore function', function() {
+		expect(scope.vm.loadMore).toBe(YoutubeSearch.searchMore);
+	});
 
 	it("search youtube once, when it loads", function() {
 		expect(YoutubeSearch.search).toHaveBeenCalled();
@@ -28,6 +38,6 @@ describe("Youtube Videos", function() {
 	});
 
 	it("should queue and play video", function() {
-		scope.vm.playVideo(mockVideoItem);
+		expect(scope.vm.playVideo).toBeDefined();
 	});
 });
