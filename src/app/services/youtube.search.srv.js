@@ -3,7 +3,7 @@
 
 	angular
 		.module('echoes.services')
-		// DEFINE FACTORY HERE
+		.factory('YoutubeSearch', YoutubeSearch);
 
 	/* @ngInject */
 	function YoutubeSearch ($http, YOUTUBE_API_KEY, YoutubeVideoInfo, localStorageService){
