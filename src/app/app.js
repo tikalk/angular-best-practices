@@ -17,7 +17,7 @@
 	])
 	.config(config);
 
-	function config ($routeProvider, $locationProvider, localStorageServiceProvider, GapiApiSetterProvider) {
+	function config ($routeProvider, $locationProvider, GapiApiSetterProvider) {
 		GapiApiSetterProvider.config({
 			scope: 'youtube',
 			api: { 
