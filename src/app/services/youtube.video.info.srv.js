@@ -2,8 +2,8 @@
 	'use strict';
 
 	angular
-	.module('echoes.services')
-	.factory('YoutubeVideoInfo', YoutubeVideoInfo);
+		.module('echoes.services')
+		.factory('YoutubeVideoInfo', YoutubeVideoInfo);
 
 	function YoutubeVideoInfo ($q, $http, YOUTUBE_API_KEY){
 		var url = 'https://www.googleapis.com/youtube/v3/videos';
@@ -12,7 +12,7 @@
 				part: 'snippet,contentDetails,statistics',
 				key: YOUTUBE_API_KEY,
 				id: '',
-				maxResults: 50
+				maxResults: 10
 			}
 		};
 
@@ -35,7 +35,7 @@
 				params: // extend config.params and return a copy of it as a literal object
 			};
 			return $http.get().then(function(res){
-				// should return the items array from teh response
+				// should return the items array from the response
 			});
 		}
 
@@ -96,16 +96,17 @@
 			return list(videoIds);
 		}
 
+		// should create a time property for each item in items
+		// by using "item.contentDetails.duration" and toFriendlyDuration
+		// @returns items
 		function addDuration (items) {
-			items.forEach(function(item){
-				item.time = toFriendlyDuration(item.contentDetails.duration);
-			});
-			return items;
+			
 		}
 
 		function enrichItems (response) {
+			// add duration in then
 			return fetchContentDetails(response.result || response.data)
-				.then(addDuration);
+				.then();
 		}
 	}
 

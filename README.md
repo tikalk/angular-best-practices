@@ -1,3 +1,16 @@
+# Challenge  
+
+## phase 1
+* create constant for youtube api key (constants.js)  
+* complete the youtube.video.info.srv.js (read the comments)  
+
+## phase 2  
+* create youtube.search.srv.js  
+
+## phase 3  
+* setup localstorage moduel in config phase (setPrefix function)
+
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.

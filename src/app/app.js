@@ -26,8 +26,6 @@
 			},
 			clientId: '971861197531'
 		});
-
-		localStorageServiceProvider.setPrefix('EchoesPlayer');
 	}
 
 })();
