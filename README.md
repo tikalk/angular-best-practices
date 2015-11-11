@@ -3,6 +3,19 @@
 * define data-binding in index.html by **tests/mocks/video.item.mock.json**  
 * use **ng-repeat/class/click/hide** in index.html **".youtube-item"**  
 
+## Instructions  
+it should have these on vm:  
+* playVideo  
+* feedType  
+* videos  
+* loadMore  
+
+injection:  
+* YoutubeSearch  
+* YoutubeVideoInfo  
+
+constructor should invoke search  
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.
