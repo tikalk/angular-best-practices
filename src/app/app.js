@@ -17,7 +17,7 @@
 	])
 	.config(config);
 
-	function config ($routeProvider, $locationProvider, GapiApiSetterProvider) {
+	function config ($routeProvider, $locationProvider, localStorageServiceProvider, GapiApiSetterProvider) {
 		GapiApiSetterProvider.config({
 			scope: 'youtube',
 			api: { 
@@ -26,6 +26,8 @@
 			},
 			clientId: '971861197531'
 		});
+
+		localStorageServiceProvider.setPrefix('EchoesPlayer');
 	}
 
 })();

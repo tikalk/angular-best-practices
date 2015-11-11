@@ -6,7 +6,7 @@
 		.factory('YoutubeSearch', YoutubeSearch);
 
 	/* @ngInject */
-	function YoutubeSearch ($http, YOUTUBE_API_KEY, YoutubeVideoInfo){
+	function YoutubeSearch ($http, YOUTUBE_API_KEY, YoutubeVideoInfo, localStorageService){
 		var url = 'https://www.googleapis.com/youtube/v3/search';
 		var Storage = {
 			QUERY: 'query'
@@ -50,7 +50,7 @@
 			// remove properties not relevant to playlist search
 			config.params.q = query || config.params.q;
 			// save query to storage
-			
+			localStorageService.set(Storage.QUERY, config.params.q);
 			// after response, it should 
 			// fetch content details, add duration and mark the isSearching to be false
 			return $http.get()
@@ -91,7 +91,7 @@
 		}
 
 		function resetPageToken () {
-			
+			config.params.pageToken = '';
 		}
 
 		function setDuration (duration) {
