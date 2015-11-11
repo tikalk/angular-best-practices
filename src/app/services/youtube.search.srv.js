@@ -49,11 +49,9 @@
 			}
 			// remove properties not relevant to playlist search
 			config.params.q = query || config.params.q;
-			localStorageService.set(Storage.QUERY, config.params.q);
-			return $http.get(url, config)
-				.then(fetchContentDetails)
-				.then(addDuration)
-				.then(finalize);
+			
+			return $http.get()
+				//
 
 			function fetchContentDetails(response){
 				nextPageToken = response.data.nextPageToken;

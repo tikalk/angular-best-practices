@@ -2,8 +2,8 @@
 	'use strict';
 
 	angular
-	.module('echoes.services')
-	.factory('YoutubeVideoInfo', YoutubeVideoInfo);
+		.module('echoes.services')
+		.factory('YoutubeVideoInfo', YoutubeVideoInfo);
 
 	function YoutubeVideoInfo ($q, $http, YOUTUBE_API_KEY){
 		var url = 'https://www.googleapis.com/youtube/v3/videos';
