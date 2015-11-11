@@ -15,7 +15,7 @@
 			params: {
 				part: 'snippet,id',
 				key: YOUTUBE_API_KEY,
-				q: '',
+				q: localStorageService.get(Storage.QUERY),
 				maxResults: 50,
 				type: 'video'
 			}
@@ -53,7 +53,7 @@
 			localStorageService.set(Storage.QUERY, config.params.q);
 			// after response, it should 
 			// fetch content details, add duration and mark the isSearching to be false
-			return $http.get(url)
+			return $http.get(url, config)
 				.then(fetchContentDetails)
 				.then(addDuration)
 				.then(finalize);
