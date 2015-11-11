@@ -1,3 +1,17 @@
+# Challenge  
+* create youtube-media drv js in (directives/youtube/youtube-media) 
+* move the youtube-media template to html  
+* convert bindings to one-time binding in template
+
+youtube media drv should get these attributes:  
+* onPlay (function)  
+* onQueue (function)  
+* video (object)  
+
+youtube media drv should have these funcs:
+* playVideo
+* queueVideo
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.
