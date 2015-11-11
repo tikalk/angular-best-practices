@@ -3,7 +3,7 @@
 
 	angular
 		.module('echoes.services')
-		.factory('YoutubeSearch', YoutubeSearch);
+		// DEFINE FACTORY HERE
 
 	/* @ngInject */
 	function YoutubeSearch ($http, YOUTUBE_API_KEY, YoutubeVideoInfo, localStorageService){
@@ -15,8 +15,8 @@
 			params: {
 				part: 'snippet,id',
 				key: YOUTUBE_API_KEY,
-				q: localStorageService.get(Storage.QUERY),
-				maxResults: 50,
+				q: '',
+				maxResults: 10,
 				type: 'video'
 			}
 		};
@@ -49,9 +49,12 @@
 			}
 			// remove properties not relevant to playlist search
 			config.params.q = query || config.params.q;
+			// save query to storage
 			
+			// after response, it should 
+			// fetch content details, add duration and mark the isSearching to be false
 			return $http.get()
-				//
+				// complete the code HERE - you can use ".then" function
 
 			function fetchContentDetails(response){
 				nextPageToken = response.data.nextPageToken;
@@ -86,7 +89,7 @@
 		}
 
 		function resetPageToken () {
-			config.params.pageToken = '';
+			
 		}
 
 		function setDuration (duration) {
