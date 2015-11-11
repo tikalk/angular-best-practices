@@ -53,7 +53,7 @@
 			localStorageService.set(Storage.QUERY, config.params.q);
 			// after response, it should 
 			// fetch content details, add duration and mark the isSearching to be false
-			return $http.get()
+			return $http.get(url)
 				.then(fetchContentDetails)
 				.then(addDuration)
 				.then(finalize);
