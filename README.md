@@ -1,3 +1,8 @@
+# Challenge  
+* YoutubeVideosCtrl in **"youtube-videos"**  
+* define data-binding in index.html by **tests/mocks/video.item.mock.json**  
+* use **ng-repeat/class/click/hide** in index.html **".youtube-item"**  
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.
