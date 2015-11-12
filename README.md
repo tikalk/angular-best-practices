@@ -1,3 +1,9 @@
+# Challenge
+* add ui router with bower   
+* Define ui router instead of ng-router in app.js  
+* define the module of youtube-video (add it to the app)  
+* write the youtube-video code (including ui router defintion) by the spec file  
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.
