@@ -1,3 +1,9 @@
+# Challenge  
+* define router in app.js  
+* define route for YoutubeVideosCtrl 
+* experiment with resolve instead of calling YoutubeSearch.search() in YoutubeVideosCtrl  
+
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.
