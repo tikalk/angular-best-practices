@@ -33,16 +33,32 @@
 				<div class="navbar-header" ng-controller="SearchCtrl as vm">
 									
 					<!-- SEARCH FORM -->
-					<form class="navbar-form form-search navbar-left" id="media-explorer" ng-submit="vm.search()">
+					<form name="searchForm" class="navbar-form form-search navbar-left" id="media-explorer" ng-submit="vm.search()">
 						<div class="form-group">
-							<input placeholder="Explore Media" id="media-search" type="search" class="form-control" autocomplete="off"
+							<input name="query" placeholder="Explore Media" id="media-search" type="search" class="form-control" autocomplete="off"
 								ng-model="vm.params.q"
 								ng-change="vm.resetPageToken()"
+								validate-query
+								Xminlength="3"
 								>
 							<button class="btn btn-transparent btn-submit" type="submit" title="search with echoes">
 								<i class="fa fa-search"></i>
 							</button>
 						</div>
+						<div ng-messages="searchForm.query.$error" class="hide">
+						    <p ng-message="required" class="invalid">
+						      This field is required
+						    </p>
+						    <p ng-message="query" class="invalid">
+						      Remove any "http://" reference
+						    </p>
+						    <p ng-message="minlength" class="invalid">
+						      Minimum of 13 characters
+						    </p>
+						    <p ng-message="maxlength" class="invalid">
+						      Maximum of 16 characters
+						    </p>
+						  </div>
 					</form>
 					
 				</div>			 
@@ -130,7 +146,8 @@
 	<script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
 	<script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
-	<script type="text/javascript" src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-messages/angular-messages.min.js"></script>
 	<script type="text/javascript" src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
 	<script type="text/javascript" src="../bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
 	<script type="text/javascript" src="../bower_components/angular-sortable-view/src/angular-sortable-view.min.js"></script>

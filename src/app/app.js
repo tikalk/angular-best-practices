@@ -13,7 +13,8 @@
 		'youtube-videos',
 		'LocalStorageModule',
 		'media.search',
-		'infinite-scroll'
+		'infinite-scroll',
+		// 'ngMessages',
 	])
 	.config(config);
 
