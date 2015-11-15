@@ -4,7 +4,7 @@
 		.module('youtube-videos')
 		.controller('YoutubeVideosCtrl', YoutubeVideosCtrl);
 
-	function YoutubeVideosCtrl(YoutubeSearch, YoutubeVideoInfo, YoutubePlayerSettings){
+	function YoutubeVideosCtrl(YoutubeSearch, YoutubeVideoInfo){
 		var vm = this;
 
 		vm.playVideo = playVideo;
@@ -19,8 +19,7 @@
 		}
 
 		function playVideo (video) {
-			YoutubePlayerSettings.queueVideo(video);
-			YoutubePlayerSettings.playVideo(video);
+			
 		}
 	}
 

@@ -18,14 +18,12 @@
         return directive;
 
         function link(scope, element, attrs) {
-        	scope.$watch('isFullScreen()', function (newVal, oldVal) {
-        		if (newVal !== oldVal) {
-        			element.toggleClass(attrs.playerResizer, newVal);
-        		}	
-        	});
+            // watch for isFullScreen expression and 
+            // toggleClass of the attribute "playerResizer" on the element
+        	
 
         	scope.isFullScreen = function(){
-        		return PlayerResizer.isFullScreen();
+        		
         	};
         }
     }

@@ -7,17 +7,18 @@
         /* @ngInject */
         .factory('YoutubePlayerApi', YoutubePlayerApi);
 
-        function YoutubePlayerApi ($window, $q){
+        function YoutubePlayerApi ($window){
             /*jshint validthis: true */
             var that = this;
-            var deferred = $q.defer();
+            // CREATE A DEFERRED OBJECT
+            var deferred;
             var service = {
                 load: load
             };
 
             // Youtube callback when API is ready
             $window.onYouTubeIframeAPIReady = function () { 
-                deferred.resolve() 
+                // RESOLVE THE RESPONSE
             };
 
             return service;
@@ -36,7 +37,8 @@
                 tag.src = url;
                 var firstScriptTag = document.getElementsByTagName('script')[0];
                 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-                return deferred.promise;
+                
+                // WHAT THIS FUNCTION SHOULD RETURN?
             }
         }
 

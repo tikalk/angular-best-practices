@@ -1,3 +1,14 @@
+# Challenge  
+Making the youtube player work  
+Create the YoutubePlayer module:  
+
+* understand $q in **youtube.player.api.srv.js**  
+* overview the youtube-player directive  
+* understand scope.$apply in youtube-player directive  
+* understand and write $watch in **player.resizer.directive.js**  
+* practice bindToController in youtube.media.drv.js (if not done already)  
+
+
 # Echoes Player ~(EMC)
 Echoes is a great youtube player developed by [Oren Farhi](http://orizens.com).
 It's fun & easy to listen or watch videos from youtube with Echoes.
